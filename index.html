@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Leave Management System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            background-color: #002244;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background-color: #002244;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        
+        nav img {
+            height: 40px;
+        }
+        
+        nav a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 5px;
+        }
+        
+        /* Main Content */
+        .container {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        
+        /* Leave Form */
+        .leave-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .leave-form input, .leave-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .leave-form input[type="submit"] {
+            background-color: #002244;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .leave-form input[type="submit"]:hover {
+            background-color: #002244;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #002244;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+        /* Carousel */
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* What Makes Us Special Section */
+        .special-section {
+            background-color: #002244;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .special-section h2 {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature-box {
+            background-color: #004488;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-box:hover {
+            background-color: #0055aa;
+            transform: scale(1.05);
+        }
+
+        .feature-box img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ Accordion */
+        .accordion-button {
+            background-color: #002244;
+            color: white;
+        }
+
+        .accordion-button:hover {
+            background-color: #4176aa;
+        }
+        .architecture{
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #002244;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Header -->
+<header>
+    <h1>Student Leave Management System</h1>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <img src="img.jpg" alt="Logo" style="height: 50px;">
+    <a href="index.html">Home</a>
+    <a href="login.php">login</a>
+    <a href="about us.html">About Us</a>
+    <!-- <a href="apply for leave.php">Apply for Leave</a>  -->
+    <a href="contact.html">Contact</a>
+    <a href="signup.php">signup</a>
+</nav>
+<!-- Main Content -->
+<div class="container">
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to the Student Leave Management System</h2>
+        <p>Manage your leave requests easily and efficiently.</p>
+    </section>
+
+    <!-- Carousel Section -->
+    <section id="carousel-section">
+        <h2>Gallery</h2>
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="p1.jpg" class="d-block" alt="Leave Image 1" style="height:30%;width:90%;">
+                </div>
+                <div class="carousel-item">
+                    <img src="p2.jpg" class="d-block" alt="Leave Image 2" style="height:30%;width:90%;">
+                </div>
+                <div class="carousel-item">
+                    <img src="p3.jpg" class="d-block" alt="Leave Image 3" style="height:30%;width:90%;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- What Makes Us Special -->
+    <section class="special-section">
+        <h2>What Makes Us Special</h2>
+        <div class="features">
+            <div class="feature-box">
+                <img src="security.jpg" alt="security">
+                <h3>secure</h3>
+                <p>Secure and hassle-free leave approvals.</p>
+            </div>
+            <div class="feature-box">
+                <img src="notification.jpg" alt="Notifications">
+                <h3>Instant Notifications</h3>
+                <p>Real-time leave status updates.</p>
+            </div>
+            <div class="feature-box">
+                <img src="calender.jpg" alt="Calendar">
+                <h3>Academic Calendar Sync</h3>
+                <p>Plan leaves without missing important dates.</p>
+            </div>
+            <div class="feature-box">
+                <img src="support.jpg" alt="Support">
+                <h3>24/7 Support</h3>
+                <p>Get assistance anytime you need.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section 
+    <section id="accordion-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        How can a student request leave?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        Log in, fill out the form, and submit your request.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <!-- Accordion Section -->
+    <section id="accordion-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How can a student request leave through the system?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                       <strong>A student can request leave by logging into the system with their credentials, navigating to the "Leave Request" section, and filling out the required information such as the reason for leave, start and end dates, and any supporting documents. Once the request is submitted, it will be sent to the designated authority for approval.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What happens if my leave request is rejected?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                       <strong>If your leave request is rejected, you will receive a notification stating the reason for rejection. You can then make any necessary adjustments and resubmit the request, or contact the authority for further clarification.</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Can I track the status of my leave request?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, you can track the status of your leave request at any time by logging into your account. The system will show whether your leave request is "Pending," "Approved," or "Rejected," and will provide any additional comments or feedback from the approver.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="architecture">
+<h4>Architecture Design</h4>
+<img src="https://cdn.wikitechy.com/final-year-project/dotnet/architecture-design-for-student-leave-management-system.png" style="height: 30%;width:90%">
+</section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    Student Leave Management System &copy; 2025
+</footer>
+</body>
+</html>
+

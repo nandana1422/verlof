@@ -1,0 +1,467 @@
+<!--DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <title>Student Leave Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #002244;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #002244;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        nav img {
+            height: 40px;
+            padding: 5px 15px;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .leave-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .leave-form input[type="text"], .leave-form input[type="date"], .leave-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .leave-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .leave-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Custom CSS for carousel */
+        #carouselExample .carousel-item img {
+            width: 80%;   /* Set the width of images to 80% of the container */
+            margin: 0 auto; /* Center images inside the container */
+            height: auto;   /* Maintain the aspect ratio of images */
+        }
+    </style-->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Leave Management System</title>
+        
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <style>
+            /* Global Styles */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f9fa;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            
+            /* Header */
+            header {
+                background-color: #002244;
+                color: white;
+                padding: 15px 0;
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+            }
+            
+            /* Navigation Bar */
+            nav {
+                background-color: #002244;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            
+            nav img {
+                height: 40px;
+            }
+            
+            nav a {
+                color: white;
+                padding: 10px 15px;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            
+            nav a:hover {
+                background-color: #ddd;
+                color: black;
+                border-radius: 5px;
+            }
+            
+            /* Main Content */
+            .container {
+                padding: 30px;
+                flex-grow: 1;
+            }
+            
+            /* Leave Form */
+            .leave-form {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .leave-form input, .leave-form textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            
+            .leave-form input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            
+            .leave-form input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+            
+            /* Footer */
+            footer {
+                background-color: #002244;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                margin-top: auto;
+            }
+    
+            /* Carousel */
+            .carousel img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+    
+            /* What Makes Us Special Section */
+            .special-section {
+                background-color: #4878a7;
+                color: white;
+                padding: 50px 20px;
+                text-align: center;
+            }
+    
+            .special-section h2 {
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+    
+            .features {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+    
+            .feature-box {
+                background-color: #002244;
+                padding: 20px;
+                border-radius: 10px;
+                width: 250px;
+                text-align: center;
+                transition: 0.3s;
+            }
+    
+            .feature-box:hover {
+                background: color #000;;
+                transform: scale(1.05);
+            }
+    
+            .feature-box img {
+                width: 50px;
+                margin-bottom: 10px;
+            }
+    
+            /* FAQ Accordion */
+            .accordion-button {
+                background-color: #002244;
+                color: white;
+            }
+    
+            .accordion-button:hover {
+                background-color: #4e8fd0;
+            }
+        </style>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<header>
+    <h1>Student Leave Management System</h1>
+</header>
+<nav>
+    <img src="img.jpg" alt="Logo">
+    <a href="index.html">Home</a>
+    <a href="login.php">login</a>
+    <a href="about us.html">About Us</a> <!-- Link to About Us page -->
+    <!-- <a href="apply for leave.html">Apply for Leave</a> -->
+    <a href="contact.html">Contact</a>
+</nav>
+<div class="container">
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to the Student Leave Management System</h2>
+        <p>Manage your leave requests easily and efficiently.</p>
+    </section>
+
+    <!-- About Us Section -->
+    <!--<section id="about-us">
+        <h2>About Us</h2>
+        <p>Welcome to the Student Leave Management System! This platform is designed to simplify and streamline the process of managing student leave requests. Our goal is to make it easier for students to request and track their leave while providing institutions with a convenient way to manage and approve those requests.</p>
+
+        <h3>Our Mission</h3>
+        <p>Our mission is to provide a user-friendly, efficient, and transparent system for managing student leaves. We aim to create a smooth process that reduces administrative burden and allows both students and faculty to focus on what's most important – education!</p>
+
+        <h3>Who We Are</h3>
+        <p>The Student Leave Management System was developed by a dedicated team of students and professionals who are passionate about improving the educational experience. Our team includes software developers, UI/UX designers, and education specialists working together to build a solution that addresses real-world challenges faced by students and educational institutions.</p>
+
+       
+    </section>-->
+
+    <section id="about-us">
+        <h2>About Us</h2 >
+        <p>Welcome to the Student Leave Management System! This platform is designed to simplify and streamline the process of managing student leave requests. Our goal is to make it easier for students to request and track their leave while providing institutions with a convenient way to manage and approve those requests.</p>
+    
+        <!-- Vision and Mission -->
+        <h3>Our Vision and Mission</h3>
+        <p><strong>Vision:</strong> To create a hassle-free and efficient leave management system that enhances both the student and administrative experience.</p>
+        <p><strong>Mission:</strong> To ensure the seamless application and approval process for students requesting leave, with full transparency and real-time updates.</p>
+    
+        <!-- How the System Works -->
+        <h3>How the System Works</h3>
+        <p><strong>Student's View:</strong> Log in > Submit Leave Request > Await Approval > Track Status</p>
+        <p><strong>Admin's View:</strong> Review Requests > Approve/Reject Requests > Send Notifications to Students</p>
+    
+        <!-- Technologies Used 
+        <h3>Technologies Used</h3>
+        <p>The Student Leave Management System was developed using a combination of technologies:</p>
+        <ul>
+            <li><strong>Bootstrap:</strong> For responsive design</li>
+            <li><strong>PHP:</strong> For backend server-side processing</li>
+            <li><strong>MySQL:</strong> For secure and scalable database management</li>
+            <li><strong>JavaScript:</strong> For interactive UI elements</li>
+        </ul>-->
+    
+        <!-- Team Behind the Project 
+        <h3>Meet the Team</h3>
+        <p>This project was developed by a dedicated team of developers, designers, and educational professionals. Our team includes:</p>
+        <ul>
+            <li><strong>John Doe:</strong> Project Lead & Backend Developer</li>
+            <li><strong>Jane Smith:</strong> UI/UX Designer</li>
+            <li><strong>Mark Lee:</strong> Frontend Developer</li>
+        </ul>-->
+    
+        <!-- Security and Privacy -->
+        <h3>Security and Privacy</h3>
+        <p>We prioritize the security and privacy of your data. The system uses encryption and secure access protocols to ensure that your personal information remains safe at all times. For more details, please review our <a href="privacypolicy.html">Privacy Policy</a>.</p>
+    
+        <!-- Testimonials -->
+        <h3>User Testimonials</h3>
+        <blockquote>
+            "The system has made requesting leave so easy! I no longer have to go through paperwork or wait in long lines."<strong></strong>
+        </blockquote>
+    
+        <!-- Future Enhancements -->
+        <h3>Future Enhancements</h3>
+        <p>We are continuously working to improve the Student Leave Management System. Some upcoming features include:</p>
+        <ul>
+            <li>Mobile app for easy leave requests</li>
+            <li>Integration with calendar apps for automatic leave scheduling</li>
+        </ul>
+    
+    </section>
+    
+
+
+    <section id="accordion-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How can a student request leave through the system?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        A student can request leave by logging into the system with their credentials, navigating to the "Leave Request" section, and filling out the required information such as the reason for leave, start and end dates, and any supporting documents. Once the request is submitted, it will be sent to the designated authority for approval.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        What happens if my leave request is rejected?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        If your leave request is rejected, you will receive a notification stating the reason for rejection. You can then make any necessary adjustments and resubmit the request, or contact the authority for further clarification.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Can I track the status of my leave request?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, you can track the status of your leave request at any time by logging into your account. The system will show whether your leave request is "Pending," "Approved," or "Rejected," and will provide any additional comments or feedback from the approver.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Is it possible to cancel or modify a leave request after submission?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, if your leave request is still pending approval, you can modify or cancel it by logging into the system and updating your request. Once a leave request is approved, it may not be changed, but you can contact the relevant authority for assistance.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        What types of leaves can I request through the system?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The system allows students to request various types of leave, including medical leave, personal leave, and emergency leave. Specific types of leave may vary depending on the institution’s policies.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        How long in advance should I request leave?
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        It is recommended to submit your leave request as soon as possible, ideally at least a few days in advance. This allows the authorities enough time to review and approve or reject the request.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Can I request leave during exam periods?
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Leave during exam periods may be granted in exceptional circumstances, such as illness or family emergencies. You may be required to submit additional documentation, such as a medical certificate, to support your request.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        Will I be notified about the status of my leave request?
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, the system will notify you via email or within the platform regarding the approval or rejection of your leave request. You will also be informed if any further information or documentation is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2>Abstract</h2>
+    <p>
+        In today’s educational system, managing attendance effectively is a growing challenge faced by students and faculty alike. Students often find themselves in situations where they are unable to attend classes due to personal or emergency reasons, resulting in a shortage of attendance. This can negatively impact their academic performance and participation in extracurricular activities such as workshops, seminars, and events, which are vital for their overall development.
+        
+        Furthermore, a lack of proper coordination with concerned authorities and the absence of an efficient communication system make it difficult for students to submit leave applications in a timely manner, thus missing out on important opportunities. Some students also miss notifications about beneficial upcoming events and activities. The absence of a centralized, automated solution for managing attendance and leave requests creates significant gaps in the current system.</p>
+        
+        <h3> Existing System</h3>
+        <p>The existing attendance and leave management systems rely heavily on manual processes. Administrative users maintain records in hand-written registers or through traditional methods, which are time-consuming, prone to errors, and require significant human effort. These systems also rely on paper-based documentation, which is inefficient for maintaining and updating records.
+        
+        One major drawback of the existing system is the high likelihood of errors in data entry. If incorrect information is input, it may lead to misunderstandings or even rejection of leave applications. Additionally, the existing system is not user-friendly and often leads to delays in retrieving data, making it cumbersome for both students and faculty to access the necessary information. The manual nature of these systems makes it difficult to generate reports efficiently, and the process is typically time-consuming. Moreover, the possibility of data loss or mismanagement further exacerbates the situation, especially when reports or attendance records are misplaced.
+        
+        As a result, the administrative tasks related to attendance and leave management require specialized knowledge and a dedicated team, which often incurs additional costs. The existing systems cannot automate tasks efficiently, making the entire process prone to human error and delays.</p>
+        
+        <h3>Proposed System</h3>
+        <p>The proposed Student Leave Management System addresses the shortcomings of the existing manual system by introducing a fully automated, digital solution that ensures efficient data management, transparency, and ease of access for students, faculty, and HODs (Head of Department). The system will be based on a secure and user-friendly online interface, allowing authorized users to access and update the necessary data from any location at any time.
+        
+        Key Features and Modules:
+        The system will contain the following modules, each tailored to the role of the user—Student, Faculty, and HOD:
+        
+        </p>
+    <section>
+         <h3>Contact Us</h3>
+        <p>If you have any questions or need support, feel free to contact us at:</p>
+        <p><strong>Email:</strong> support@studentleave.com</p>
+        <p><strong>Phone:</strong> +91 9947907730</p>
+    </section>
+</div>
+    <footer>
+        <p>Student Leave Management System &copy; 2025</p>
+    </footer>
